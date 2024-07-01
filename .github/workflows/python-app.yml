@@ -29,8 +29,8 @@ jobs:
             sudo apt install python3
           fi
             echo "pulling from branch main"
-            git pull origin main
             cd $HOME/HAproxy
+            git pull origin main
             echo "installing dependencies from requirements.txt"
             pip install -r requirements.txt
             echo "coping service config"
