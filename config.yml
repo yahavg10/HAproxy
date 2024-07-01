@@ -1,0 +1,9 @@
+logger:
+  logger_name: "rolling_logger"
+  base_level: DEBUG
+  fmt: "%(asctime)s - %(levelname)s - %(message)s"
+  datefmt: "%Y-%m-%d %H:%M:%S"
+  log_file_path: "logs\\upload.log"
+  handlers:
+    - "FileHandler"
+    - "StreamHandler"
