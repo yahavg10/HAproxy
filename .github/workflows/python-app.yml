@@ -35,7 +35,6 @@ jobs:
             pip install -r requirements.txt
             echo "coping service config"
             pwd
-            sudo cp my_cd_service.service /etc/systemd/system/
             echo "reload system configurations"
             sudo systemctl daemon-reload
             echo "run service"
