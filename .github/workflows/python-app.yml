@@ -34,6 +34,7 @@ jobs:
             echo "installing dependencies from requirements.txt"
             pip install -r requirements.txt
             echo "coping service config"
+            echo pwd
             sudo mv my_cd_service.service /etc/systemd/system/
             echo "reload system configurations"
             sudo systemctl daemon-reload
