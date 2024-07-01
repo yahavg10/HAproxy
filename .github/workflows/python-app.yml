@@ -29,12 +29,12 @@ jobs:
             sudo apt install python3
           fi
             echo "pulling from branch main"
-            git pull origin main
             cd $HOME/HAproxy
+            git pull origin main
             echo "installing dependencies from requirements.txt"
             pip install -r requirements.txt
             echo "coping service config"
-            sudo mv HAproxy/my_cd_service.service /etc/systemd/system/
+            sudo mv my_cd_service.service /etc/systemd/system/
             echo "reload system configurations"
             sudo systemctl daemon-reload
             echo "run service"
