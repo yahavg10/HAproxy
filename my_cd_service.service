@@ -1,0 +1,13 @@
+[Unit]
+Description=My Python Service
+After=network.target
+
+[Service]
+User=yahav
+Group=yahav
+WorkingDirectory=/home/yahav/pythonHafifa
+ExecStart=/usr/bin/python3 /home/yahav/pythonHafifa/main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
