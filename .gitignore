@@ -1,0 +1,70 @@
+# Ignore Python bytecode
+*.py[cod]
+__pycache__/
+*.so
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Ignore virtual environments
+env/
+venv/
+ENV/
+VENV/
+.venv/
+
+# Ignore distribution/build directories
+build/
+dist/
+*.egg-info/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+
+# Ignore editor/IDE settings
+.vscode/
+.idea/
+*.swp
+
+# Ignore local environment settings
+.env
+.env.local
+.venv
+
+# Ignore miscellaneous files
+*.bak
+*.tmp
+*.backup
+
+# Ignore coverage files
+.coverage
+.coverage.*
+.cache
+coverage.xml
+nosetests.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+.tox/
+.nox/
+htmlcov/
+.cache/
+pytestdebug.log
+
+# Ignore Sphinx documentation
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# Ignore Jekyll site
+_site/
+.jekyll-cache/
+
+# Ignore macOS system files
+*.DS_Store
+.AppleDouble
+.LSOverride
