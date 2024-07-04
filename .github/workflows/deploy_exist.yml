@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        host: ['${ secrets.SSH_HOST_EXISTING_1 }' , '${ secrets.SSH_HOST_EXISTING_2 }']
+        host: ['${ secrets.SSH_HOST }' , '${ secrets.SSH_HOST_2 }']
 
     steps:
     - name: Checkout repository
