@@ -1,9 +1,6 @@
 import os
-
 import uvicorn
 from fastapi import FastAPI
-
-os.environ["conf_path"] = "config.yml"
 
 from endpoints.post import post_router
 

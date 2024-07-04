@@ -8,26 +8,19 @@ def setup_custom_logger(logger_config: LoggerModel) -> logging.Logger:
 
     init_logger = logging.getLogger(name=logger_config.logger_name)
     init_logger.setLevel(logger_config.base_level)
-    for handler_name in logger_config.handlers:
-        handler = create_handler(handler_name=handler_name,
-                                 filename=logger_config.log_file_path)
-        handler.setFormatter(formatter)
-        init_logger.addHandler(handler)
+
+    create_file_handler(formatter, init_logger, logger_config)
+    create_stream_handler(formatter, init_logger)
     return init_logger
 
 
-def create_handler(handler_name, **kwargs) -> logging.Handler:
-    handler_mapping = {
-        "FileHandler": logging.FileHandler,
-        "StreamHandler": logging.StreamHandler,
-    }
+def create_file_handler(formatter, init_logger, logger_config):
+    file_handler = logging.FileHandler(logger_config.log_file_path)
+    file_handler.setFormatter(formatter)
+    init_logger.addHandler(file_handler)
 
-    handler_class = handler_mapping.get(handler_name)
-    if handler_class:
-        if handler_name == "StreamHandler":
-            kwargs.pop("filename")
-            return handler_class(**kwargs)
-        else:
-            return handler_class(**kwargs)
-    else:
-        raise ValueError("Unsupported handler type")
+
+def create_stream_handler(formatter, init_logger):
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(formatter)
+    init_logger.addHandler(stream_handler)

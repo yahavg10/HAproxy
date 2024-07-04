@@ -6,7 +6,7 @@ After=network.target
 User=yahav
 Group=yahav
 WorkingDirectory=/home/yahav/HAproxy
-ExecStart=/usr/bin/python3 /home/yahav/HAproxy/main.py
+ExecStart=/usr/bin/python3 /home/yahav//main.py
 Restart=always
 
 [Install]

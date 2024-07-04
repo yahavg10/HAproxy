@@ -7,7 +7,7 @@ from models.logger_model import LoggerModel
 
 
 @dataclass
-class Config:
+class Singleton:
     _instance = None
 
     def __new__(cls: Type["Config"], *args, **kwargs):
@@ -20,7 +20,7 @@ class Config:
 
 
 @dataclass
-class AppConfig(Config):
+class AppConfig(Singleton):
     logger: LoggerModel
 
     @staticmethod
