@@ -1,0 +1,41 @@
+name: Azure VM-DevOps
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Deploy project on VM
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST_2 }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          if [ ! -d "$HOME/HAproxy" ]; then
+            echo "Directory HAproxy doesn't exist, cloning directory"
+            git clone https://yahavg10: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@github.com/yahavg10/HAproxy.git
+            echo "installing python3-pip, python3"
+            sudo apt update
+            sudo apt install python3-pip
+            sudo apt install python3
+          fi
+            echo "pulling from branch main"
+            cd $HOME/HAproxy
+            git pull origin main
+            echo "installing dependencies from requirements.txt"
+            pip install -r requirements.txt
+            echo "coping service config"
+            sudo cp my_cd_service.service /etc/systemd/system/
+            echo "reload system configurations"
+            sudo systemctl daemon-reload
+            echo "run service"
+            sudo systemctl restart my_cd_service
