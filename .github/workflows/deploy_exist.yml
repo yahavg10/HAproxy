@@ -32,8 +32,8 @@ jobs:
           echo "installing dependencies from requirements.txt"
           pip install -r requirements.txt
           echo "copying service config"
-          sudo cp my_cd_service.service /etc/systemd/system/
+          sudo cp log_images_http_server.service /etc/systemd/system/
           echo "reloading system configurations"
           sudo systemctl daemon-reload
           echo "starting service"
-          sudo systemctl restart my_cd_service
+          sudo systemctl restart log_images_http_server
