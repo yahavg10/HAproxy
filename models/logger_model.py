@@ -30,3 +30,4 @@ class LoggerModel:
             raise ValueError(
                 f"Invalid log level: {v}. Valid levels are {', '.join(LogLevel.__members__)}")
         return v.upper()
+
