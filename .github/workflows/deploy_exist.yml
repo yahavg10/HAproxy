@@ -10,10 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        host: 
-          - ${{ secrets.SSH_HOST }}
-          - ${{ secrets.SSH_HOST_2 }}
-
+        host: ["4.231.5.217", "4.180.212.188"]
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
